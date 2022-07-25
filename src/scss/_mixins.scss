@@ -1,0 +1,34 @@
+@import "./valiables";
+
+@mixin hover {
+  &:not([disabled]):hover {
+    cursor: pointer;
+    @content;
+  }
+}
+@mixin active {
+  &:not([disabled]):active {
+    @content;
+  }
+}
+@mixin focus($border-size, $border-color) {
+  &:not([disabled]):focus {
+    outline: 4px solid $color_blue;
+
+    @if $border-size and $border-color {
+      outline: #{$border-size} solid #{$border-color};
+    }
+  }
+}
+@mixin disabled {
+  &[disabled] {
+    cursor: not-allowed;
+    @content;
+  }
+}
+
+@mixin transition-default {
+  & {
+    transition: all 0.25s;
+  }
+}

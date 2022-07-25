@@ -1,16 +1,60 @@
+@import "../../scss/valiables";
+@import "../../scss/mixins";
+
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $dark;
+  color: $light;
+  font-size: 1rem;
+  height: $size_default;
+  border-radius: 50px;
+  border: none;
+  padding: 0 32px;
+
+  // general
+  @include transition-default;
+  @include hover {
+    @include transition-default;
+  }
+  @include focus(false, false);
+  @include disabled;
+
+  // sizes
+  &-large {
+    height: $size_big;
+  }
+  &-small {
+    height: $size_small;
+  }
+
+  // colors
+  &-dark {
+    background-color: $dark;
+    color: $light;
+    @include hover {
+      background-color: #333;
+    }
+    @include active {
+      background-color: #999;
+    }
+    @include disabled {
+      background-color: #ccc;
+    }
+  }
+  &-light {
+    background-color: $light;
+    color: $dark;
+    @include hover {
+      background-color: #999;
+    }
+    @include active {
+      background-color: #ccc;
+    }
+    @include disabled {
+      background-color: #f7f7f7;
+      color: #969696;
+    }
+  }
 }
-
-/*
-Dark
-color - #000
-
-Light
-color - #fff
-
-Large
-height - 64px
-
-Small
-height - 48px
-*/
